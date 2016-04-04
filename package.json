@@ -1,0 +1,25 @@
+{
+  "name": "tsmake",
+  "version": "1.0.0",
+  "description": "Tool to create tsconfig for complex application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BugBusterSWE/tsmake.git"
+  },
+  "keywords": [
+    "typescript",
+    "make",
+    "tsmake",
+    "build"
+  ],
+  "author": "Andrea Mantovani",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BugBusterSWE/tsmake/issues"
+  },
+  "homepage": "https://github.com/BugBusterSWE/tsmake#readme"
+}
