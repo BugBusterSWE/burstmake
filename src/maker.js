@@ -1,4 +1,5 @@
 const Solver = require( "./solver.js" );
+const Publisher = require( "./publisher.js" );
 
 function Maker(){
 }
@@ -8,15 +9,20 @@ Start the application reading the tsmake.json to create the tsconfig.json files
 @param file {string}    File within the configuration of project
 */
 Maker.prototype.make = function ( file ) {
-    // Use this object to creare one tsconfig file foreach hotpoint declared in tsmake
+    // Use this object to creare one tsconfig file foreach hotpoint declared
+    // in tsmake
     var makeopt = JSON.parse( file );
-    // Passing configuration that the Solver and the Builder use it to creata the tsconfig files
-    var solver = new Solver( makeopt );    
+
+    var solver = new Solver( makeopt );
+    var publisher = new Publisher( makeopt );
 
     // Catch all hotpoint in tsmake
     Object.keys( makeopt.hotpoint ).forEach( function ( key ) {
-        // Create a uncomplete tsconfig object        
-        console.log( solver.solve( key ) );    
+        // Create a uncomplete tsconfig object without information rleative
+	// to directory configuration project but only at the topic
+        var tsconfig = solver.solve( key );
+	// Publish the tsconfig.json with the left information
+	publisher.publish( tsconfig, makeopt.hotpoint[key] );
     });
 };
 
