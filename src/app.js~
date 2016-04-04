@@ -1,2 +1,0 @@
-const make = require( "./maker" );
-make.print();
