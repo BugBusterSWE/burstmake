@@ -1,10 +1,12 @@
 /**
 The Builder create the uncomplete tsconfig object.
-@param rule {Function}  Set statment to apply for each state for composing the tsconfig object. The function require:
-    <ul>
-        <li>config - Configuration make for now</li>
-        <li>actual - Configuration for the current state</li>
-    </ul> 
+@param rule {Function}  
+Set statment to apply for each state for composing 
+the tsconfig object. The function require:
+<ul>
+<li>config - Configuration make for now</li>
+<li>actual - Configuration for the current state</li>
+</ul> 
 */
 function Builder( rule ) {
     this.rule = rule;
@@ -33,7 +35,8 @@ Builder.prototype.build = function () {
 
     // Stop when the stack is empty
     while ( state !== undefined ) {
-        // Apply transform rule at tsconfig object apply the options declared in the state object
+        // Apply transform rule at tsconfig object apply the options declared
+	// in the state object
         this.rule( tsconfig, state );
         // Next state
         state = this.stack.pop();    
