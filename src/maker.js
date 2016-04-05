@@ -18,10 +18,10 @@ Maker.prototype.make = function ( file ) {
 
     // Catch all hotpoint in tsmake
     Object.keys( makeopt.hotpoint ).forEach( function ( key ) {
-        // Create a uncomplete tsconfig object without information rleative
-	// to directory configuration project but only at the topic
-        var tsconfig = solver.solve( key );
-	// Publish the tsconfig.json with the left information
+        // Create tsconfig object with information rleative to
+	// directory configuration project 
+        var tsconfig = solver.solve( key, makeopt.hotpoint[key] );
+	// Publish the tsconfig.json
 	publisher.publish( tsconfig, makeopt.hotpoint[key] );
     });
 };
