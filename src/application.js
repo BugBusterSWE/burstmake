@@ -4,7 +4,7 @@ var maker = require( "./maker.js" );
 /**
 Expect that the tsmake file is in the root of application
 */
-const PATH = __dirname + "/../tsmake.json";
+const PATH = __dirname + "/../../../bustersmake.json";
 
 function Application() {
 }
@@ -14,7 +14,8 @@ Application.prototype.run = function () {
     try {
         var file = fs.readFileSync( PATH, "utf-8" );
     } catch ( e ) {
-        throw "Impossible read file. Make sure that it present in the root of project";
+        throw "Impossible read mubstersmake.json file. " +
+	    "Make sure that it present in the root of project";
     }
 
     maker.make( file );
