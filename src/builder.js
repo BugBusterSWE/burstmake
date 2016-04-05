@@ -27,10 +27,7 @@ Create a tsconfig with the state stored previously
 @return {Object} Uncomplete tsconfig builded with the set of state
 */
 Builder.prototype.build = function () {    
-    var tsconfig = {
-        compilerOptions: {}    
-    };
-
+    var tsconfig = {};
     var state = this.stack.pop();
 
     // Stop when the stack is empty
