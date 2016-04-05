@@ -1,8 +1,13 @@
 {
-  "name": "tsmake",
-  "version": "1.0.0",
+  "name": "bustersmake",
+  "version": "1.0.4",
   "description": "Tool to create tsconfig for complex application",
-  "main": "src/app.js",
+  "main": "app.js",
+  "bin": "app.js",
+  "files" : [
+	"src/",
+	"app.js"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,7 +21,7 @@
     "tsmake",
     "build"
   ],
-  "author": "Andrea Mantovani",
+  "author": "Andrea Mantovani, Polonio Davide",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/BugBusterSWE/tsmake/issues"
