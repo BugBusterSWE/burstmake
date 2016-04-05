@@ -3,3 +3,6 @@ node_modules/
 
 # Temporary file
 *.js~
+
+# WebStorm IDE
+.idea/
