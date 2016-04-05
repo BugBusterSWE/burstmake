@@ -1,4 +1,6 @@
-const app = require( "./application.js" );
+#!/usr/bin/env node
+
+const app = require( "./src/application.js" );
 
 // Catch global exception throw througout the application flow
 try {
