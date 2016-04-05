@@ -27,7 +27,17 @@ Solver.prototype.solve = function ( topic ) {
     // The function stored in buildRule tell as get the configuration in the
     // actual level of hierarchy and how it integrate with them.
     var buildingRule = function ( config, actual ) {
-        // In the case that a descendant set a option already set,
+	// The two check append the compilerOptions at the attribute either
+	// actual or config when is not define it. In this way, if any topic
+	// declare the compilerOptions this will not include in the
+	// tsconfig.json
+	if ( actual.compilerOptions === undefined ) {
+	    actual.compilerOptions = {};
+	} else if ( config.compilerOptions === undefined ) {
+	    config.compilerOptions = {};
+	}
+
+	// In the case that a descendant set a option already set,
 	// the option will set at the value of descendant.
         if ( actual.compilerOptions.module !== undefined ) {
             config.compilerOptions.module = actual.compilerOptions.module;
@@ -65,6 +75,11 @@ Solver.prototype.solve = function ( topic ) {
 	} if ( actual.compilerOptions.noEmitOnError !== undefined ) {
 	    config.compilerOptions.noEmitOnError =
 		actual.compilerOptions.noEmitOnError;
+	    
+	} if ( actual.include !== undefined ) {
+	    config.include = ( config.include !== undefined ) ?
+		config.include.concat( actual.include ) :
+		actual.include;
 	}
     };
 
