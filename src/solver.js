@@ -83,11 +83,11 @@ Solver.prototype.solve = function ( topic, hotpoint ) {
 		
 	    } if ( actual.compilerOptions.outDir !== undefined ) {
 		config.compilerOptions.outDir =
-		    relative( hotpoint, actual.compilerOptions.outDir );
+		    relative( actual.compilerOptions.outDir );
 		
 	    } if ( actual.compilerOptions.outFile !== undefined ) {
 		config.compilerOptions.outFile =
-		    relative( hotpoint, actual.compilerOptions.outFile );
+		    relative( actual.compilerOptions.outFile );
 
 	    } if ( actual.compilerOptions.sourceMap !== undefined ) {
 		config.compilerOptions.sourceMap =
