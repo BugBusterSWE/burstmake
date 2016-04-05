@@ -5,7 +5,8 @@ function Maker(){
 }
 
 /**
-Start the application reading the bustersmake.json to create the tsconfig.json files
+Start the application reading the burstmake.json to create 
+the tsconfig.json files
 @param file {string} File within the configuration of project
 */
 Maker.prototype.make = function ( file ) {
@@ -16,7 +17,7 @@ Maker.prototype.make = function ( file ) {
     var solver = new Solver( makeopt );
     var publisher = new Publisher();
 
-    // Catch all hotpoint in tsmake
+    // Catch all hotpoint in burstmake
     Object.keys( makeopt.hotpoint ).forEach( function ( key ) {
         // Create tsconfig object with information rleative to
 	// directory configuration project 

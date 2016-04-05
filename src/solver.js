@@ -123,7 +123,7 @@ Solver.prototype.solve = function ( topic, hotpoint ) {
     var builder = new Builder( buildingRule );
 
     // The topic should derive from other topic. With the while we follow
-    // the chian of hierarchy and build the rule to create the completly
+    // the chain of hierarchy and build the rule to create the completly
     // tsconfig configure. 
     while ( topic !== undefined ) {
         var conf = this.makeopt[topic];

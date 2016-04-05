@@ -2,19 +2,19 @@ const fs = require( "fs" );
 var maker = require( "./maker.js" );
 
 /**
-Expect that the bustersmake file is in the root of application
+Expect that the burstmake file is in the root of application
 */
-const PATH = __dirname + "/../../../bustersmake.json";
+const PATH = __dirname + "/../../../burstmake.json";
 
 function Application() {
 }
 
 Application.prototype.run = function () {
-    // Read file bustersmake.json in the current directory process
+    // Read file burstmake.json in the current directory process
     try {
         var file = fs.readFileSync( PATH, "utf-8" );
     } catch ( e ) {
-        throw "Impossible read bustersmake.json file. " +
+        throw "Impossible read burstmake.json file. " +
 	    "Make sure that it is presents in the root of project";
     }
 
