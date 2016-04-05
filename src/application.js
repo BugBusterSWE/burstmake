@@ -15,7 +15,7 @@ Application.prototype.run = function () {
         var file = fs.readFileSync( PATH, "utf-8" );
     } catch ( e ) {
         throw "Impossible read bustersmake.json file. " +
-	    "Make sure that it present in the root of project";
+	    "Make sure that it is presents in the root of project";
     }
 
     maker.make( file );
