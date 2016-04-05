@@ -5,7 +5,7 @@ function Maker(){
 }
 
 /**
-Start the application reading the tsmake.json to create the tsconfig.json files
+Start the application reading the bustersmake.json to create the tsconfig.json files
 @param file {string} File within the configuration of project
 */
 Maker.prototype.make = function ( file ) {
