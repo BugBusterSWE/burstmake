@@ -6,7 +6,7 @@ function Maker(){
 
 /**
 Start the application reading the tsmake.json to create the tsconfig.json files
-@param file {string}    File within the configuration of project
+@param file {string} File within the configuration of project
 */
 Maker.prototype.make = function ( file ) {
     // Use this object to creare one tsconfig file foreach hotpoint declared
@@ -14,7 +14,7 @@ Maker.prototype.make = function ( file ) {
     var makeopt = JSON.parse( file );
 
     var solver = new Solver( makeopt );
-    var publisher = new Publisher( makeopt );
+    var publisher = new Publisher();
 
     // Catch all hotpoint in tsmake
     Object.keys( makeopt.hotpoint ).forEach( function ( key ) {
