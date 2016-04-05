@@ -1,46 +1,55 @@
-/**
-The Builder create the uncomplete tsconfig object.
-@param rule {Function}  
-Set statment to apply for each state for composing 
-the tsconfig object. The function require:
-<ul>
-<li>config - Configuration make for now</li>
-<li>actual - Configuration for the current state</li>
-</ul> 
-*/
-function Builder( rule ) {
-    this.rule = rule;
-    // The stack is the implementation of the hierarchy. 
-    this.stack = new Array();
-}
+namespace BurstMake{
 
-/**
-Push functioner state to make the tsconfig object
-@param state {Object} Configuration to build the tsconfig for a certain state
-*/
-Builder.prototype.push = function ( state ) {
-    this.stack.push( state );
-};
+    export class Builder {
+        private rule : Function;
+        private stack : Array<any>;
 
-/**
-Create a tsconfig with the state stored previously
-@return {Object} Uncomplete tsconfig builded with the set of state
-*/
-Builder.prototype.build = function () {    
-    var tsconfig = {};
-    var state = this.stack.pop();
+        /**
+         * The Builder create the tsconfig object.
+         *
+         * @param rule {Function}
+         * Set statment to apply for each state for composing
+         * the tsconfig object. The function arguments are:
+         * <ul>
+         *     <li>config : Object - Configuration make for now</li>
+         *     <li>actual : Object - Configuration for the current state</li>
+         * </ul>
+         */
+        public constructor( rule : Function ) {
+            this.rule = rule;
+            // The stack is the implementation of the hierarchy
+            this.stack = [];
+        }
 
-    // Stop when the stack is empty
-    while ( state !== undefined ) {
-        // Apply transform rule at tsconfig object apply the options declared
-	// in the state object
-        this.rule( tsconfig, state );
-        // Next state
-        state = this.stack.pop();    
+        /**
+         * Push functioner state to make the tsconfig object.
+         *
+         * @param state {Object}
+         * Configuration to build the tsconfig for a certain state
+         */
+        public push( state : any ) : void {
+            this.stack.push( state );
+        }
+
+        /**
+         * Create a tsconfig with the state stored previously.
+         *
+         * @return {Object} tsconfig builded with the set of state
+         */
+        public build() : any {
+            let tsconfig : any = {};
+            let state : any = this.stack.pop();
+
+            // Stop when the stack is empty
+            while ( state !== undefined ) {
+                // Apply transform rule at tsconfig object apply the
+                // options declared in the state object
+                this.rule( tsconfig, state );
+                // Next state
+                state = this.stack.pop();
+            }
+
+            return tsconfig;
+        }
     }
-
-    return tsconfig;
-};
-
-module.exports = Builder;
-
+}

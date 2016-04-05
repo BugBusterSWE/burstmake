@@ -1,24 +1,26 @@
-const fs = require( "fs" );
-var maker = require( "./maker.js" );
+namespace BurstMake {
+    const fs = require( "fs" );
 
-/**
-Expect that the burstmake file is in the root of application
-*/
-const PATH = __dirname + "/../../../burstmake.json";
+    export class Application {
+        // Expect that the burstmake file is in the root of application
+        private PATH = `${__dirname}/../../../burstmake.json`;
 
-function Application() {
+        public constructor() {}
+
+        public run() {
+            let maker : Maker = new Maker();
+
+            // Read file burstmake.json in the current directory process
+            try {
+                var file = fs.readFileSync( this.PATH, "utf-8" );
+            } catch ( e ) {
+                throw `Impossible read burstmake.json file.\n
+                    Make sure that it is presents in the root of project`;
+            }
+
+            maker.make( file );
+        }
+    }
 }
 
-Application.prototype.run = function () {
-    // Read file burstmake.json in the current directory process
-    try {
-        var file = fs.readFileSync( PATH, "utf-8" );
-    } catch ( e ) {
-        throw "Impossible read burstmake.json file. " +
-	    "Make sure that it is presents in the root of project";
-    }
-
-    maker.make( file );
-};
-
-module.exports = new Application();
+export = BurstMake;

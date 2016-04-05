@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const app = require( "./src/application.js" );
+let app : BurstMake.Application = new App
 
 // Catch global exception throw througout the application flow
 try {
