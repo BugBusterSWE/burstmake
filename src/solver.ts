@@ -102,7 +102,10 @@ namespace BurstMake {
 
 					} if ( actual.compilerOptions.outDir !== undefined ) {
 						config.compilerOptions.outDir =
-							relative( actual.compilerOptions.outDir );
+							// Append a slash at the end of path because node return 
+							// relative path but tsconfig want the path with the slah
+							// final
+							relative( actual.compilerOptions.outDir ) + "/";
 
 					} if ( actual.compilerOptions.outFile !== undefined ) {
 						config.compilerOptions.outFile =
