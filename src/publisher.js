@@ -18,7 +18,11 @@ Publisher.prototype.publish = function ( tsconfig, hotpoint )  {
 	// Publish the tsconfig file!"
 	fs.writeFileSync(
 	    hotpoint + "tsconfig.json",
-	    JSON.stringify( tsconfig ),
+	    JSON.stringify(
+		tsconfig,
+		null,
+		4
+	    ),
 	    "utf-8"
 	);
     } catch ( e ) {
