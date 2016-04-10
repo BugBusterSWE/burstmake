@@ -19,7 +19,7 @@ now, to compile all the four parts you need one tsconfig.json file for `front/sr
 
 This is a mistake! In the worst case you have the same options for four files.
 
-As tell you above, Burstmake wants to bring new, better, solution.
+As said you above, Burstmake wants to bring new, better, solution.
 
 
 
