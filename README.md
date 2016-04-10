@@ -26,7 +26,9 @@ Before explaining what to do, we must introduce the concept of **topic** and **h
 #### Topic
 The topic is the set of TypeScript rules to apply to the hotpoint. One topic has the same content of a TypeScript configuration but with some differences.
  
-The most important property of a topic is the possibility to **extend** it, in this way the problem of making multiple tsconfig files with the same options is resolved.
+The most important property of a topic is the possibility to **extend** it for creating a hierarchy of topics, in this way the problem of making multiple tsconfig files with the same options is resolved.
+
+Another property of topics is that the paths are relative to the **root** of project. In oth
 
 
 
