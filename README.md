@@ -151,7 +151,7 @@ The structure of **burstmake.json** file is as below:
         ],
         
         "exclude": [
-            "use minimatch expression to ignore files or directories in the topic folder
+            "use minimatch expression to ignore files or directories in the topic folder"
         ],
     }
 }
