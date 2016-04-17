@@ -1,15 +1,29 @@
 # Burstmake
 Burstmake is a tool to manage your [TypeScript](http://www.typescriptlang.org) project when there are more indipendent parts.
-In this case, the solution is either creating one `tsconfig.json` file **for each** subpart or use another tool to have a pretty manage.
+In this case, the solution is either creating one `tsconfig.json` file **for each** subpart or using another tool to have a pretty manage.
 Burstmake wants to simplify everything using one file: **burstmake.json**.
 
 ## Sections
-* [Use Case](#use-case)
+* [Installing and use](#installation-and-use)
+* [Summary](#summary)
  * [Topic](#topic)
  * [Hotpoint](#hotpoint)
 * [Schema](#schema)
 
-### Use Case
+### Installing and use
+For the latest stable version:
+```
+npm install -g burstmake
+```
+
+and run:
+```
+burstmake
+```
+
+in the **root** of project to create the tsconfig.json file by **burstmake.json** file.
+
+### Summary
 Imagine a project as below:
 ```
 root
@@ -111,8 +125,8 @@ This is a examplvenire PUOI Notaree:
 ```json
 {
     "hotpoint": {
-        "front_t": "front/",
-        "back_t": "back/"
+        "front_t": "./front/",
+        "back_t": "./back/"
     },
 
     "common": {
@@ -151,7 +165,8 @@ The structure of **burstmake.json** file is as below:
         ],
         
         "exclude": [
-            "use minimatch expression to ignore files or directories in the topic folder"
+            "use minimatch expression to ignore files or 
+	    directories in the topic folder"
         ],
     }
 }
