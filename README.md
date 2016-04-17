@@ -79,7 +79,7 @@ If a declaration is both in a parent topic and in a children topic, the children
             "preserveConstEnums": true,
             "sourceMap": true,
             "module": "amd",
-            "outFile": "app.js" // refere to root
+            "outFile": "app.js"
         }
     }
 ```
@@ -103,20 +103,27 @@ Ok, now we have been learning to write a topic and use inheritance to avoid mult
 Well is simple, in the burstmake.json be must present a `hotpoint` attribute where are indicate the directories of project to use as topics.
 
 This is a example:
-
 ```json
 {
-    /**
-      declaration of back_t and front_t as above
-    */
-
-    "hotpoint": {
-        "front_t": "front/", <-- importan '/' at last
+     "hotpoint": {
+        "front_t": "front/",
         "back_t": "back/"
     }
+
+    "common": {
+        ...
+    }
+    
+    "front_t": {
+        ...
+    }
+
+   "back_t": {
+        ...
+   }
 }
 ```
-
 Now, if you run burstmake in the `front/` and `back/` directory should find a tsconfig.json file within the correct configuration.
 
+Note: the `/` is important, no forgetting.
 
