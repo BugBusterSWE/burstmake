@@ -72,7 +72,8 @@ When Burstmake will runs, `front_t` and `back_t` will inherite all compiler opti
 If a declaration is both in a parent topic and in a children topic, the children topic's declaration will use. In the case above,  `front_t` and `back_t` become this:
 
 ```json
-"front_t": {
+{
+    "front_t": {
         "compilerOptions": {
             "target": "es5",
             "noImplicitAny": true,
@@ -83,10 +84,12 @@ If a declaration is both in a parent topic and in a children topic, the children
             "outFile": "app.js"
         }
     }
+}
 ```
 
 ```json
-"back_t": {
+{
+    "back_t": {
         "compilerOptions": {
             "target": "es5",
             "noImplicitAny": true,
@@ -96,6 +99,7 @@ If a declaration is both in a parent topic and in a children topic, the children
             "module": "commonjs"
         }
     }
+}
 ```
 
 #### Hotpoint
@@ -106,7 +110,7 @@ Well is simple, in the burstmake.json be must present a `hotpoint` attribute whe
 This is a examplvenire PUOI Notaree:
 ```json
 {
-     "hotpoint": {
+    "hotpoint": {
         "front_t": "front/",
         "back_t": "back/"
     },
@@ -118,10 +122,10 @@ This is a examplvenire PUOI Notaree:
     "front_t": {
     
     },
-
-   "back_t": {
-   
-   },
+    
+    "back_t": {
+    
+    },
 }
 ```
 Now, if you run burstmake in the `front/` and `back/` directory should find a tsconfig.json file within the correct configuration. As you can see the `common` topic is not insert in the hotpoint section, it is only a topic where taking informations about the common configurations.
