@@ -9,7 +9,7 @@ Burstmake wants to simplify everything using one file: **burstmake.json**.
  * [Hotpoint](#hotpoint)
 * [Schema](#schema)
 
-## Use Case
+### Use Case
 Imagine a project as below:
 ```
 root
@@ -128,7 +128,7 @@ Now, if you run burstmake in the `front/` and `back/` directory should find a ts
 
 Note: the `/` is important, no forgetting.
 
-## Schema
+### Schema
 The structure of **burstmake.json** file is as below:
 ```json
 {
@@ -140,15 +140,15 @@ The structure of **burstmake.json** file is as below:
         "base": "some_topic",
         
         "compilerOptions": {
-        }
+        },
         
         "include": [
             "file outside of topic, useful for .d.ts definitions"
-        ]
+        ],
         
         "exclude": [
             "use minimatch expression to ignore files or directories in the topic folder
-        ]
+        ],
     }
 }
 ```
