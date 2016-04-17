@@ -7,6 +7,7 @@ Burstmake wants to simplify everything using one file: **burstmake.json**.
 * [Use Case](#use-case)
  * [Topic](#topic)
  * [Hotpoint](#hotpoint)
+* [Schema](#schema)
 
 ## Use Case
 Imagine a project as below:
@@ -26,7 +27,7 @@ This is a mistake! In the worst case you have the same options for four files.
  
 As said above, Burstmake wants to bring a new, better, solution.
 
-Before explaining what to do, we must introduce the concept of **topic** and **hotpoint** ( jump to the technical section if you don't need the explanation ).
+Before explaining what to do, we must introduce the concept of **topic** and **hotpoint**.
 
 #### Topic
 The topic is the set of TypeScript rules to apply to the hotpoint. One topic has the same content of a TypeScript configuration but with some differences.
@@ -46,7 +47,7 @@ The example below show how to write a topic:
             "preserveConstEnums": true,
             "sourceMap": true
         }
-    }
+    },
 
     "front_t": {
         "base": "common",
@@ -55,7 +56,7 @@ The example below show how to write a topic:
             "module": "amd",
             "outFile": "built/app.js"
         }
-    }
+    },
     
     "back_t": {
         "base": "common",
@@ -102,28 +103,65 @@ Ok, now we have been learning to write a topic and use inheritance to avoid mult
 
 Well is simple, in the burstmake.json be must present a `hotpoint` attribute where are indicate the directories of project to use as topics.
 
-This is a example:
+This is a examplvenire PUOI Notaree:
 ```json
 {
      "hotpoint": {
         "front_t": "front/",
         "back_t": "back/"
-    }
+    },
 
     "common": {
-        ...
-    }
+    
+    },
     
     "front_t": {
-        ...
-    }
+    
+    },
 
    "back_t": {
-        ...
-   }
+   
+   },
 }
 ```
-Now, if you run burstmake in the `front/` and `back/` directory should find a tsconfig.json file within the correct configuration.
+Now, if you run burstmake in the `front/` and `back/` directory should find a tsconfig.json file within the correct configuration. As you can see the `common` topic is not insert in the hotpoint section, it is only a topic where taking informations about the common configurations.
 
 Note: the `/` is important, no forgetting.
 
+## Schema
+The structure of **burstmake.json** file is as below:
+```json
+{
+    "hotpoint": {
+        "topic_declared": "path_with_final_slah"
+    }
+    
+    "topic": {
+        "base": "some_topic",
+        
+        "compilerOptions": {
+        }
+        
+        "include": [
+            "file outside of topic, useful for .d.ts definitions"
+        ]
+        
+        "exclude": [
+            "use minimatch expression to ignore files or directories in the topic folder
+        ]
+    }
+}
+```
+
+The `compilerOptions` attribute is the compilerOptions of a tsconfig.json file but for now it supports only:
+* module
+* target
+* moduleResolution
+* noImplicitAny
+* removeComments
+* preserveConstEnums
+* outDir
+* outFile
+* sourceMap
+* declaration
+* noEmitOnError
