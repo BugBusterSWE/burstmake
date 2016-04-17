@@ -134,7 +134,7 @@ The structure of **burstmake.json** file is as below:
 {
     "hotpoint": {
         "topic_declared": "path_with_final_slah"
-    }
+    },
     
     "topic": {
         "base": "some_topic",
