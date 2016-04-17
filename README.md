@@ -4,7 +4,7 @@ In this case, the solution is either creating one `tsconfig.json` file **for eac
 Burstmake wants to simplify everything using one file: **burstmake.json**.
 
 ## Sections
-* [Installing and use](#installation-and-use)
+* [Installing and use](#installing-and-use)
 * [Summary](#summary)
  * [Topic](#topic)
  * [Hotpoint](#hotpoint)

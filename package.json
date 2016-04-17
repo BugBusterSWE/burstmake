@@ -1,6 +1,6 @@
 {
   "name": "burstmake",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Tool to create tsconfig for complex application",
   "main": "app.js",
   "bin": "app.js",
