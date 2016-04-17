@@ -4,7 +4,7 @@ var maker = require( "./maker.js" );
 /**
 Expect that the burstmake file is in the root of application
 */
-const PATH = __dirname + "/../../../burstmake.json";
+const PATH = process.cwd() + "/burstmake.json";
 
 function Application() {
 }
