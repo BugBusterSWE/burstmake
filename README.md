@@ -119,7 +119,7 @@ If a declaration is both in a parent topic and in a children topics, the childre
 #### Hotpoint
 Alright, now we have learned how to write a topic and use inheritance to avoid multiple similar tsconfig.json files, how do we specify the subsets of the project in which we want to use it?
 
-Well, is simple. In the burstmake.json file there must be a `hotpoint` attribute where are indicated the directories of project to use as topics.
+Well, is simple. In the burstmake.json file there must be an 'hotpoint' attribute in which is stated the association topic-folder.
 
 This is an example:
 ```json
@@ -161,8 +161,7 @@ The structure of **burstmake.json** file is:
         },
         
         "include": [
-            "file outside of topic, useful for .d.ts definitions in the form:
-	    path/of/the/source.*"
+            "file outside of topic, useful for .d.ts definitions"
         ],
         
         "exclude": [
@@ -185,4 +184,6 @@ The `compilerOptions` attribute is the compilerOptions of a tsconfig.json file b
 * sourceMap
 * declaration
 * noEmitOnError
+
+**IMPORTANT**: The paths in `hotpoint` and `compilerOptions` must use the format: `./path/`, instead the paths in `include` must be in the `path/source` format.
 
