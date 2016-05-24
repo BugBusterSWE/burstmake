@@ -102,6 +102,9 @@ Solver.prototype.solve = function ( topic, hotpoint ) {
 	    } if ( actual.compilerOptions.noEmitOnError !== undefined ) {
 		config.compilerOptions.noEmitOnError =
 		    actual.compilerOptions.noEmitOnError;
+	    } if ( actual.compilerOptions.jsx !== undefined ) {
+		config.compilerOptions.jsx =
+		    actual.compilerOptions.jsx;
 	    }
 	    
 	} if ( actual.include !== undefined ) {
